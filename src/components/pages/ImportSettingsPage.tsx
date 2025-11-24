@@ -234,8 +234,8 @@ export default function ImportSettingsPage() {
             <AlertCircle className="h-4 w-4" />
             <AlertTitle>Security Check</AlertTitle>
             <AlertDescription>
-              Only import configurations from sources you trust. This will
-              contain your API keys.
+              Only import configurations from sources you trust. Otherwise it
+              will case a pravicy leak. Use your own risk.
             </AlertDescription>
           </Alert>
         </CardContent>
