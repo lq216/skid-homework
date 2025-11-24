@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import "../index.css";
 import type { Metadata } from "next";
 import Providers from "./providers";
