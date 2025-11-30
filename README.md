@@ -128,6 +128,16 @@ OpenAI API 未经完整测试, 若出现问题请携带 Devtools 中的日志开
 
 第三方API 不保证100% 可以用.
 
+### Devtools 是什么
+
+我们在软件里写了一些功能方便我们调试
+
+如果使用没有问题, 请不要打开该选项
+
+Devtools 功能如下
+
+- 查看原始Markdown
+
 ### 我还有其他问题
 
 > 如果你发现了Bug, 请到 [issues](https://github.com/cubewhy/skid-homework/issues) 反馈, 否则请移步讨论区.
