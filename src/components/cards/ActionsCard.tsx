@@ -1,5 +1,3 @@
-"use client";
-
 import type { FileItem } from "@/store/problems-store";
 import { useCallback } from "react";
 import ActionsArea from "../areas/ActionsArea";
