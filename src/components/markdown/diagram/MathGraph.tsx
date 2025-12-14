@@ -56,7 +56,6 @@ export default function MathGraph({ code }: { code: string }) {
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
         const { width, height } = entry.contentRect;
-        // 只有当尺寸发生实际变化且大于0时才更新
         if (width > 0 && height > 0) {
           setDimensions({ width, height });
         }
@@ -67,9 +66,7 @@ export default function MathGraph({ code }: { code: string }) {
     return () => observer.disconnect();
   }, []);
 
-  // 2. Plotting Logic
   useEffect(() => {
-    // 必须有宽高才能绘制
     if (!rootEl.current || dimensions.width === 0 || dimensions.height === 0)
       return;
 
@@ -211,22 +208,15 @@ export default function MathGraph({ code }: { code: string }) {
           stroke: #d1d5db !important;
           opacity: 1 !important;
         }
-        /* 隐藏默认图例，使用自定义的 HTML 图例 */
         .function-plot .top-right-legend {
           display: none;
         }
       `}</style>
 
-      {/* 
-        Container for the graph. 
-        flex-1 makes it fill all available vertical space minus the legend.
-        ref=containerRef 用于监听尺寸变化。
-      */}
       <div ref={containerRef} className="flex-1 w-full min-h-0 relative">
         <div ref={rootEl} className="absolute inset-0" />
       </div>
 
-      {/* Custom Legend - 只有在没有错误且有数据时显示 */}
       {legendItems.length > 0 && !error && (
         <div className="flex-none flex flex-wrap items-center gap-4 border-t border-gray-100 bg-gray-50/50 px-4 py-3 z-10">
           {legendItems.map((item, i) => (
