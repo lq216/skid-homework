@@ -22,7 +22,6 @@ export default function ChatPage() {
   const {
     activeChatId,
     activeThread,
-    threads,
     chatMessages,
     messageInput,
     setMessageInput,
@@ -44,11 +43,16 @@ export default function ChatPage() {
     handleSelectSource,
     navigateToChat,
     updateThread,
+    filteredThreads,
+    searchQuery,
+    setSearchQuery,
   } = useChatLogic();
 
   const renderSidebarContent = (mobile = false) => (
     <ChatSidebar
-      threads={threads}
+      threads={filteredThreads}
+      searchQuery={searchQuery}
+      onSearchChange={setSearchQuery}
       activeChatId={activeChatId}
       sourceMap={sourceMap}
       onNewChat={handleNewChat}

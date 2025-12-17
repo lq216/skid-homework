@@ -28,6 +28,9 @@ interface ChatSidebarProps {
   threads: ChatThreadRecord[];
   activeChatId?: string;
   sourceMap: Map<string, AiSource>;
+  searchQuery: string;
+
+  onSearchChange: (query: string) => void;
   onNewChat: () => void;
   onSelectChat: (id: string) => void;
   onForkChat: (id: string) => void;
@@ -39,6 +42,9 @@ export function ChatSidebar({
   threads,
   activeChatId,
   sourceMap,
+  searchQuery,
+
+  onSearchChange,
   onNewChat,
   onSelectChat,
   onForkChat,
@@ -63,7 +69,12 @@ export function ChatSidebar({
       <div className="px-4 pb-2">
         <div className="relative">
           <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input placeholder="Search chats..." className="pl-8 h-9" disabled />
+          <Input
+            placeholder="Search chats..."
+            className="pl-8 h-9"
+            value={searchQuery}
+            onChange={(e) => onSearchChange(e.target.value)}
+          />
         </div>
       </div>
 

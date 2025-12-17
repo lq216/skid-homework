@@ -58,8 +58,17 @@ export function useChatLogic() {
   const [seedData, setSeedData] = useState<SeedChatState | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [modelInput, setModelInput] = useState("");
   const [currentSourceId, setCurrentSourceId] = useState<string | null>(null);
+
+  const filteredThreads = useMemo(() => {
+    if (!searchQuery.trim()) return threads;
+    const lowerQuery = searchQuery.toLowerCase();
+    return threads.filter((thread) =>
+      thread.title.toLowerCase().includes(lowerQuery),
+    );
+  }, [threads, searchQuery]);
 
   const navigateToChat = useCallback(
     (chatId: string | undefined) => {
@@ -373,5 +382,8 @@ export function useChatLogic() {
     handleSelectSource,
     navigateToChat,
     updateThread,
+    filteredThreads,
+    searchQuery,
+    setSearchQuery,
   };
 }
