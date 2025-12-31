@@ -67,7 +67,7 @@ To render a graph, output a code block with the language tag \`plot-function\` c
 1.  **NO Arithmetic in JSON**: You must calculate all numbers before outputting JSON.
     *   ❌ \`"domain": [-2*PI, 2*PI]\`
     *   ✅ \`"domain": [-6.28, 6.28]\`
-2.  **Valid JSON**: No trailing commas, use double quotes for keys.
+2.  **Valid JSON**: No trailing commas or comments, use double quotes for keys.
 3.  **Functions**: Use standard math syntax (e.g., \`sin(x)\`, \`exp(x)\`, \`x^2\`).
 
 ### 4. Examples
