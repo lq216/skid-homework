@@ -18,7 +18,7 @@ export default function DiagramRenderer({
   const [isCodeView, setIsCodeView] = useState(false);
 
   const toggleView = () => {
-    setIsCodeView(!isCodeView);
+    setIsCodeView((prev) => !prev);
   };
 
   return (

@@ -47,7 +47,7 @@ export default function CodeRenderer({ language, content }: CodeRendererProps) {
             "rounded-full hover:bg-background p-1 mx-1",
             collapsed && "bg-background",
           )}
-          onClick={() => setCollapsed(!collapsed)}
+          onClick={() => setCollapsed((prev) => !prev)}
         >
           <ChevronsUp
             className={cn(
